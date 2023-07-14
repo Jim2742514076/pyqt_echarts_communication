@@ -1,0 +1,2 @@
+# pyqt_echarts_communication
+pyqt与echarts进行交互的实例
