@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pie</title>
+  <script src="echarts.js"></script>
+</head>
+<body>
+<!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+          title: {
+            text: 'Referer of a Website',
+            subtext: 'Fake Data',
+            left: 'center'
+          },
+          tooltip: {
+            trigger: 'item'
+          },
+          legend: {
+            orient: 'vertical',
+            left: 'left'
+          },
+          series: [
+            {
+              name: 'Access From',
+              type: 'pie',
+              radius: '50%',
+              data: [
+                { value: 1048, name: 'Search Engine' },
+                { value: 735, name: 'Direct' },
+                { value: 580, name: 'Email' },
+                { value: 484, name: 'Union Ads' },
+                { value: 300, name: 'Video Ads' }
+              ],
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+              }
+            }
+          ]
+        };
+        function pie_com(var0, var1, var2, var3, var4) {
+            myChart.showLoading();
+          if (option && typeof option === "object") {
+              option["series"][0]["data"][0]["value"] = var0;
+              option["series"][0]["data"][1]["value"] = var1;
+              option["series"][0]["data"][2]["value"] = var2;
+              option["series"][0]["data"][3]["value"] = var3;
+              option["series"][0]["data"][4]["value"] = var4;
+              myChart.setOption(option, true);
+              myChart.hideLoading();
+              return null
+          };
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        pie_com(10,10,10,10,10)
+    </script>
+</body>
+</html>
